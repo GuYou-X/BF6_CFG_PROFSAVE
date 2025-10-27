@@ -1,0 +1,33 @@
+Thread.ProcessorCount 16   //内核数
+Thread.MaxProcessorCount 16   //内核数
+Thread.MinFreeProcessorCount 0   //设定需要为系统保留的空闲核心数。0=性能最大化，让游戏用满指定核心。
+Thread.JobThreadPriority 0   //设定游戏工作线程的优先级。0 = 默认的正常优先级。
+
+NvidiaReflex.ReflexMode 1   //(NVIDIA用户核心!) 开启Reflex低延迟模式，降低输入延迟。
+RenderDevice.RenderAheadLimit 1   //设置GPU最大预渲染帧数。
+RenderDevice.VSyncEnable 0   //强制关闭垂直同步，以解锁帧率上限并降低延迟。
+RenderDevice.TripleBufferingEnable 0   //强制关闭三重缓冲 (配合关闭垂直同步)。
+
+RenderDevice.ComputeQueueEnable 1   //启用GPU计算队列，提升任务处理效率。
+RenderDevice.UseReservedJobThreads 1   //为渲染工作保留专用的CPU线程，提升高负载下的稳定性。
+PostProcess.SsaoUseAsyncCompute 1   //允许AO(环境光遮蔽)使用异步计算，提升GPU效率。
+
+WorldRender.LightTileCsPathEnable 0   //启用一种更高效的GPU光照计算路径 (画面会变黑一些)。
+WorldRender.TransparencyShadowmapsEnable 0   //禁用透明物体的阴影 (如植被、铁丝网)。
+WorldRender.EmitterSunTransmittanceMapEnable 0   //关闭体积光/上帝光 (主开关)。(经实测有效指令)
+WorldRender.EmitterSunTransmittanceMapResolution 0   //将体积光的分辨率降至最低，作为“双保险”确保其性能开销为零。
+
+WorldRender.MotionBlurEnable 0   //完全关闭动态模糊 (主开关)。
+WorldRender.MotionBlurQuality 0   //将动态模糊的质量降至最低，作为“双保险”。
+WorldRender.MotionBlurMaxSampleCount 0   //将动态模糊的采样数降至最低，作为“双保险”。
+WorldRender.MotionBoltMaxSampleCount 0   //将动态模糊的采样数降至最低 (另一条指令，三重保险)。
+
+PostProcess.DofMethod 0   //禁用景深（Depth of Field），使远处物体保持清晰。
+PostProcess.DynamicAOEnable 0   //关闭环境光遮蔽 (AO)，与上面SsaoUseAsyncCompute配合使用。
+PostProcess.ScreenSpaceRaytraceEnable 0   // 关闭光线追踪主开关 (1/2)。
+PostProcess.RaytraceReflectionsEnable 0   //关闭光线追踪反射主开关 (2/2)。
+PostProcess.RaytraceReflectionsDenoiser 0   //关闭光追反射的降噪器，进一步减少性能占用。
+PostProcess.ScreenSpaceRayTraceResolution 0   //将光追的分辨率设为最低，以防万一被其他设置意外激活。
+
+MeshDefinition.AllowHighDefinitionMeshes 0   //禁用高精度模型，强制游戏在所有距离都使用低多边形模型，显著提帧。
+Render.DynamicResolutionScaleEnable 0   //禁用动态分辨率缩放，防止游戏为保帧数而自动降低分辨率导致画面模糊。
